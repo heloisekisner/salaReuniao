@@ -1,0 +1,201 @@
+/* Importação de fonte moderna do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    /* Definição de variáveis CSS para cores e espaçamento - TONS DE AZUL MAIS VIBRANTES */
+    --primary-color: #3498db; /* Azul vibrante (Celeste) */
+    --secondary-color: #2980b9; /* Azul mais escuro e intenso */
+    --accent-color: #e67e22; /* Laranja vibrante para acentos e contraste */
+    --text-color: #333;
+    --light-text-color: #f4f4f4;
+    --background-light: #ecf0f1; /* Fundo claro e suave */
+    --background-dark: #2c3e50; /* Fundo escuro (se precisar de uma seção escura) */
+    --spacing-unit: 16px;
+    --border-radius: 8px;
+    --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, var(--background-light), #d5e0e8);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: var(--spacing-unit) * 2;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    text-align: center; /* Centraliza o H1/H2 e os parágrafos */
+    max-width: 600px;
+    width: 90%;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1, h2 { /* Estilo unificado para H1 e H2 */
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-unit) * 1.5;
+    font-size: 2.2em; /* Tamanho para H1, H2 será ajustado por herança ou especificidade */
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h1::after, h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* Estilos para o formulário - Nova Abordagem */
+form {
+    display: grid; /* Usaremos Grid Layout para um alinhamento melhor */
+    grid-template-columns: 1fr; /* Por padrão, uma coluna */
+    gap: var(--spacing-unit) * 0.8; /* Espaçamento entre os itens */
+    text-align: left; /* Alinha labels à esquerda */
+    margin-top: var(--spacing-unit) * 1.5; /* Espaçamento acima do formulário */
+}
+
+/* Para telas maiores, divida em duas colunas */
+@media (min-width: 480px) {
+    form {
+        grid-template-columns: repeat(2, 1fr); /* Duas colunas */
+    }
+    /* Campos que devem ocupar a largura total em duas colunas */
+    .full-width {
+        grid-column: 1 / -1; /* Ocupa todas as colunas */
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Garante que o grupo ocupe o espaço na grid */
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 5px; /* Espaço entre o label e o input */
+    color: var(--text-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"] {
+    width: calc(100% - 24px); /* Ajusta a largura considerando padding */
+    padding: 10px 12px;
+    border: 1px solid #dcdcdc;
+    border-radius: var(--border-radius) * 0.5;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    outline: none;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espaço entre o checkbox e o label */
+    margin-top: 10px; /* Adiciona um pequeno espaço acima dos checkboxes */
+}
+
+.checkbox-group input[type="checkbox"] {
+    transform: scale(1.1); /* Um pouco maior */
+    accent-color: var(--primary-color); /* Colore o checkbox */
+}
+
+.checkbox-group label {
+    font-weight: normal; /* Labels de checkbox não precisam ser negrito */
+    margin-bottom: 0; /* Remove a margem inferior padrão de label */
+    cursor: pointer; /* Indica que o label é clicável */
+}
+
+input[type="submit"] {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: var(--spacing-unit) * 0.8 var(--spacing-unit) * 2;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-light);
+    margin-top: var(--spacing-unit) * 1.5; /* Espaçamento maior antes do botão */
+    grid-column: 1 / -1; /* Botão ocupa a largura total na grid */
+    justify-self: center; /* Centraliza o botão dentro da coluna */
+}
+
+input[type="submit"]:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+input[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-light);
+}
+
+p {
+    margin-top: var(--spacing-unit) * 1.5;
+    font-size: 1em;
+}
+
+a {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: var(--spacing-unit) * 0.8 var(--spacing-unit) * 1.5;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    margin: var(--spacing-unit) * 0.5 auto; /* Centraliza o link */
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-light);
+}
+
+a:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+a:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-light);
+}
+
+a:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+}
