@@ -1,4 +1,4 @@
-package com.exemplo.servlet;
+package com.example.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
