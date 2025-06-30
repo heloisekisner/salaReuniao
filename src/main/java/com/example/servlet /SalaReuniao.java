@@ -3,7 +3,7 @@
  * Representa a entidade Sala de Reunião no sistema.
  * Contém os atributos que correspondem às colunas da tabela no banco de dados.
  */
-package com.exemplo.servlet;
+package com.example.servlet;
 
 public class SalaReuniao {
     private int id;
